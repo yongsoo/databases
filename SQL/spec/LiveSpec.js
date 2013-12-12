@@ -70,11 +70,8 @@ describe("Persistent Node Chat Server", function() {
     // Let's insert a message into the db
     var queryString = "";
     var queryArgs = ["Javert", "Men like you can never change!"];
-    /* TODO - The exact query string and query args to use
-     * here depend on the schema you design, so I'll leave
-     * them up to you. */
 
-    dbConnection.query( queryString, queryArgs,
+    dbConnection.query('INSERT INTO messages SET ?', queryArgs,
       function(err, results, fields) {
         /* Now query the Node chat server and see if it returns
          * the message we just inserted: */
